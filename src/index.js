@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+import Footer from './components/footer';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
@@ -17,7 +18,8 @@ class App extends Component{
 
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      footerProp: ''
     };
 
     this.videoSearch('surfboards');
@@ -47,6 +49,7 @@ class App extends Component{
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
           videos={this.state.videos} />
+        <Footer setFooter={footerProp => this.setState({footerProp})} />
       </div>
     )
   }
